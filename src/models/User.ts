@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm"
+import {Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm"
 import {v4 as uuid} from 'uuid';
 
 @Entity("users")
@@ -9,10 +9,12 @@ class User {
             this.id = uuid()
         }
 
+
     }
 
     @PrimaryColumn()
-    readonly id: string;
+    readonly id:string;
+
 
     @Column()
     name: string;
@@ -24,7 +26,11 @@ class User {
     password: string;
 
     @CreateDateColumn()
-    created_at: Date;
+    create_at: Date;
+
+
+
+
 
 }
 

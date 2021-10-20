@@ -1,28 +1,21 @@
-import { getRepository } from 'typeorm';
-import { CourseUnit } from '../model/CourseUnit';
+import {getRepository} from 'typeorm';
+import {CourseUnit} from '../models/CourseUnit';
 
 interface CourseUnitData {
     name: string;
-    description: string;
-    activy_id: string;
+    description:string;
 }
-
-class CreateCourseUnitService {
-    async execute({ name, description, activy_id }: CourseUnitData) {
-
+class  CreateCourseUnitService {
+    public async execute( {name,description}:CourseUnitData)
+{
         const courseUnitRepository = getRepository(CourseUnit);
 
-        const course_unit = courseUnitRepository.create({
+        const courseUnit= courseUnitRepository.create({
             name,
             description,
-            activy_id
-        });
-
-        await courseUnitRepository.save(course_unit);
-
-        return course_unit;
-
-    }
+});
+await courseUnitRepository.save(courseUnit);
+return courseUnit;
 }
-
-export { CreateCourseUnitService };
+}
+export {CreateCourseUnitService};
