@@ -30,7 +30,7 @@ class Activy {
     @CreateDateColumn()
     created_at: Date;
 
-    @ManyToOne(() => CourseUnit, course_units => course_units.activies)
+    @ManyToOne(() => CourseUnit, course_unit => course_unit.activies)
     @JoinTable()
     course_unit: CourseUnit
 }
