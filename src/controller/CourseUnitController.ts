@@ -1,28 +1,31 @@
 import {Request, Response} from 'express';
-import { CourseUnit } from '../models/CourseUnit';
-import {CreateCourseUnitService} from '../services/CreateCourseUnitService'
-import { GetCourseUnitsService } from '../services/GetCourseUnitService';
+import { CreateCourseUnitService } from '../services/CreateCourseUnitService';
+import { GetCourseUnitService } from '../services/GetCourseUnitService';
 
-class CourseUnitController {
-    async create(request:Request, response:Response, ){
+
+
+class CourseUnitController  {
+    async create(request:Request, response:Response){
+
+
         const courseUnitData = request.body
 
-        const createCourseUnit= new CreateCourseUnitService()
+        const createCourseUnit = new CreateCourseUnitService()
 
         const courseUnit = await createCourseUnit.execute(courseUnitData);
-    return response.json(CourseUnit);
+
+        return response.json(courseUnit);
 
     }
-
     async show(request:Request, response:Response){
         const userId = request.body.user;
 
-        const getCourseUnit = new GetCourseUnitsService();
+        const getCoursesUnits = new GetCourseUnitService();
 
-        const courseUnits = await getCourseUnit.execute(userId);
-
-        return response.json(courseUnits);
+        const coursesUnits = await getCoursesUnits.execute(userId);
+        return response.json(coursesUnits);
+        
     }
 }
 
-export {CourseUnitController};
+export {CourseUnitController}
