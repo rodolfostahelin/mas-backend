@@ -5,7 +5,7 @@ interface UserId {
     id?: string;
 }
 
-class GetCourseUnitsService{
+class GetCourseUnitService{
 
     public async execute({id}:UserId){
 
@@ -23,4 +23,4 @@ class GetCourseUnitsService{
 
 }
 
-export {GetCourseUnitsService}
+export {GetCourseUnitService}
